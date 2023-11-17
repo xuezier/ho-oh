@@ -1,0 +1,12 @@
+example/
+dist/
+node_modules/
+package/
+*.log
+
+package-lock.json
+.DS_Store
+.vscode
+
+coverage
+test

@@ -1,0 +1,50 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        "strict": 0,
+
+        "@typescript-eslint/indent": [
+            2,
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-this-alias": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+
+        "jsdoc/check-tag-names": 0,
+        "jsdoc/require-param-description": 0,
+        "jsdoc/require-param": 0,
+        "jsdoc/check-param-names": 0,
+
+        "no-unused-vars": "off",
+        "no-empty-function": "off",
+        "no-constant-condition": "off",
+        "no-extra-boolean-cast": "off",
+        "no-var": "error",
+        "no-prototype-builtins": "off",
+
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "eol-last": "error",
+        "semi": "error",
+
+        "prefer-spread": "off",
+
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/triple-slash-reference": "1"
+    }
+}
