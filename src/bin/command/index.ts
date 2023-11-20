@@ -9,6 +9,7 @@ import * as helper from './helper';
 
 import { CHECK_TIMEOUT, TITLE } from '../../constants/Command';
 import { start } from './start';
+import { stop } from './stop';
 const pkg = require(path.resolve(__dirname, '../../../package.json'));
 
 export class Program {
@@ -59,6 +60,11 @@ export class Program {
         return this._logDir;
     }
 
+    private _dispatch = `${process.cwd()}/dispatch`;
+    get dispatch() {
+        return this._dispatch;
+    }
+
     get pro_args() {
         return {
             command: this.command,
@@ -69,6 +75,7 @@ export class Program {
             workers: this.workers,
             checkTimeout: this.checkTimeout,
             logdir: this.logDir,
+            dispatch: this.dispatch,
         };
     }
 
@@ -76,6 +83,7 @@ export class Program {
 
     constructor() {
         this.start();
+        this.stop();
     }
 
     private start() {
@@ -83,11 +91,13 @@ export class Program {
             .description('run application');
 
         this.setTimeout(command)
+            .setIsDaemon(command)
             .setWorkers(command)
             .setTitle(command)
             .setBaseDir(command)
             .setIgnoreStdErr(command)
-            .setLogDir(command);
+            .setLogDir(command)
+            .setDispatch(command);
 
         command.action(async () => {
             const argvs = process.argv;
@@ -97,6 +107,25 @@ export class Program {
         })
 
         return command;
+    }
+
+    private stop() {
+        const command = this.program.command('stop')
+            .description('stop running application');
+
+        this.setTitle(command);
+
+        command.action(() => {
+            stop({title: this.title});
+        });
+    }
+
+    private setIsDaemon(command) {
+        command.option('-d, --daemon', 'open daemon', () => {
+            this._isDaemon = true;
+        });
+
+        return this;
     }
 
     private setTimeout(command: Command) {
@@ -145,6 +174,14 @@ export class Program {
             assert(isExists, new TypeError(`logdir ${logdir} is not exists`));
 
             this._logDir = logdir;
+        });
+
+        return this;
+    }
+
+    private setDispatch(command: Command) {
+        command.option('--dispatch <dispatch>', 'Application dispatch file path', dispatch => {
+            this._dispatch = dispatch;
         });
 
         return this;

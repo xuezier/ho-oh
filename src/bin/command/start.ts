@@ -19,6 +19,7 @@ export async function start(params: {
     workers: number;
     checkTimeout: number;
     logdir: string;
+    dispatch: string;
 }, argvs: string[] = []) {
     const {
         command,
@@ -31,8 +32,13 @@ export async function start(params: {
         logdir,
     } = params;
 
+    let { dispatch } = params;
+
     const cwd = process.cwd();
     const serverTitle = title || TITLE;
+
+    if(!dispatch.startsWith('/'))
+        dispatch = path.join(cwd, dispatch);
 
     const env = { ...process.env, };
     const HOME = os.homedir();
@@ -51,6 +57,7 @@ export async function start(params: {
     ].filter(Boolean).join(path.delimiter);
 
     env.ENABLE_NODE_LOG = 'YES';
+    env.HOOH_APP_WORKER_NUM = `${workers}`;
 
     const stdoutPath = path.join(logdir, `hooh-stdout.log`);
     const stderrPath = path.join(logdir, `hooh-stderr.log`);
@@ -62,6 +69,7 @@ export async function start(params: {
         checkTimeout,
         env,
         isDaemon,
+        dispatch,
     });
 
     const args = [ serverBin, startOptions, `--title="${serverTitle}"`, ...argvs ];

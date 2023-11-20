@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "nodejs process daemon plugin",
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "bin": {
     "ho-oh": "dist/bin/ho-on.js",
     "hooh": "dist/bin/ho-on.js"
@@ -24,6 +25,10 @@
     "eslint": "^8.53.0",
     "typescript": "^5.2.2"
   },
+  "maintainers": [{
+    "email": "tunan@gaoding.com",
+    "name": "tunan"
+  }],
   "dependencies": {
     "commander": "^11.1.0",
     "mkdirp": "^3.0.1"
