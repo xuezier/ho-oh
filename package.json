@@ -17,6 +17,7 @@
     "smooth"
   ],
   "author": "tunan <tunan@gaoding.com>",
+  "homepage": "https://git.gaoding.com/npm/ho-oh",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.8.10",
