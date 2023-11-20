@@ -1,5 +1,5 @@
 {
-  "name": "ho-oh",
+  "name": "@gaoding/ho-oh",
   "version": "0.1.0",
   "description": "nodejs process daemon plugin",
   "main": "dist/index.js",

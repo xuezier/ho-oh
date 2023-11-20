@@ -9,7 +9,7 @@ runnint hook support.
 
 # Installation
 ```bash
-npm install ho-oh
+npm install @gaoding/ho-oh
 ```
 
 # Usage
