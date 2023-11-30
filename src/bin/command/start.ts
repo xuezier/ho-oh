@@ -67,7 +67,6 @@ export async function start(params: {
         title: serverTitle,
         workers,
         checkTimeout,
-        env,
         isDaemon,
         dispatch,
     });
