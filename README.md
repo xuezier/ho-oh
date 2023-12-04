@@ -146,3 +146,12 @@ app.listen(2022);
 ```
 
 if add `beforeClose` hook function, worker will run all hooks before close if you run *`npm stop`*.
+
+
+### Tips
+服务偶尔需要添加一些自定义参数给到进程，这就需要透传自定义参数。
+
+在 ho-oh 里，通过添加 `--node-optiosn-${custom_key}=${value}` 来添加自定义启动参数
+```bash
+ho-oh start --dispatch=index.js --workers=2 --node-options-max-uid=9999999
+```
