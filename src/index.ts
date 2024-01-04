@@ -47,14 +47,14 @@ export async function runApp(options: any) {
 
                     if (Master.isReady)
                         Master.messenger.sendReady(worker.process);
-
-                    ready.push(worker);
+                    else
+                        ready.push(worker);
                     break;
                 }
             }
 
             // 如果所有 worker 进程都就绪且 Master 进程尚未就绪，则触发 'hooh-ready' 事件
-            if (ready.length === workers && !Master.isReady) {
+            if (!Master.isReady && ready.length === workers) {
                 Master.clearCheck();
 
                 process.send!({ action: 'hooh-ready' });
