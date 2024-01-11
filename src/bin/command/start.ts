@@ -71,7 +71,7 @@ export async function start(params: {
         dispatch,
     });
 
-    const args = [ serverBin, ...argvs, startOptions, `--title="${serverTitle}"` ];
+    const args = [ ...argvs, serverBin, startOptions, `--title="${serverTitle}"` ];
 
     if(isDaemon) {
         Logger.info(`Save log file to ${logdir}`);
