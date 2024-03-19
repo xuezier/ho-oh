@@ -2,7 +2,7 @@ import EventEmitter = require("events");
 import { Options } from "./type/Options";
 import { WorkerMessenger } from "./messenger/WorkerMessenger";
 import { Logger } from "../bin/command/logger";
-
+import * as esm from 'esm';
 /**
  * Worker 类用于管理工作子进程的操作，包括消息处理、钩子函数运行等。
  */
@@ -29,7 +29,17 @@ export class Worker {
         // 运行工作子进程启动前的钩子函数
         await this.messenger.runHooks('beforeLoad');
         // 导入指定的模块
-        const r = await import(dispatch);
+        let r: any;
+        try {
+            r = await import(dispatch);
+        }
+        catch (e) {
+            if(e.code === 'ERR_REQUIRE_ESM'){
+                const esmRequire = esm(module);
+                r = await esmRequire(dispatch);
+
+            }
+        }
 
         // 如果导入的模块是一个函数，则执行该函数
         if (typeof r === 'function')

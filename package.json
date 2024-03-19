@@ -34,6 +34,7 @@
   ],
   "dependencies": {
     "commander": "^11.1.0",
+    "esm": "^3.2.25",
     "mkdirp": "^3.0.1"
   }
 }
