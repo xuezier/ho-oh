@@ -37,8 +37,9 @@ export class Worker {
             if(e.code === 'ERR_REQUIRE_ESM'){
                 const esmRequire = esm(module);
                 r = await esmRequire(dispatch);
-
             }
+            else
+                throw e;
         }
 
         // 如果导入的模块是一个函数，则执行该函数
