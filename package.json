@@ -1,6 +1,6 @@
 {
   "name": "@gaoding/ho-oh",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "nodejs process daemon plugin",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
