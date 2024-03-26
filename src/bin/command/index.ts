@@ -7,9 +7,9 @@ import { Command, program } from 'commander';
 
 import * as helper from './helper';
 
-import { CHECK_TIMEOUT, TITLE } from '../../constants/Command';
 import { start } from './start';
 import { stop } from './stop';
+import { CHECK_TIMEOUT, TITLE } from '../constants/Command';
 const pkg = require(path.resolve(__dirname, '../../../package.json'));
 
 export class Program {
