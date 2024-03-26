@@ -28,7 +28,7 @@
         "outDir": "dist"
     },
     "include": [
-        "src"
+        "src/bin"
     ],
     "exclude": [
         "test",

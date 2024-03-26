@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as os from 'os';
 import * as util from 'util';
 
-import { HOOH_SCRIPT_START_TIMEOUT, TITLE } from "../../constants/Command";
+import { HOOH_SCRIPT_START_TIMEOUT, TITLE } from "../constants/Command";
 import { getRotatelog, sleep, stringify } from './helper';
 import { ChildProcess, SpawnOptions, execFileSync, spawn } from 'child_process';
 import { Logger } from './logger';
