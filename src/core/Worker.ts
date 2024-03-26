@@ -1,8 +1,8 @@
-import EventEmitter = require("events");
+import { EventEmitter } from 'events';
 import { Options } from "./type/Options";
 import { WorkerMessenger } from "./messenger/WorkerMessenger";
-import { Logger } from "../bin/command/logger";
 import * as esm from 'esm';
+import { Logger } from '../util/logger';
 /**
  * Worker 类用于管理工作子进程的操作，包括消息处理、钩子函数运行等。
  */

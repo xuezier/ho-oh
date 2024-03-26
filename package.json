@@ -1,5 +1,5 @@
 {
-  "name": "@gaoding/ho-oh",
+  "name": "@gaoding/ho-oh-esm",
   "version": "0.2.1",
   "description": "nodejs process daemon plugin",
   "main": "dist/index.js",
@@ -9,6 +9,7 @@
     "hooh": "dist/bin/ho-on.js"
   },
   "scripts": {
+    "build": "tsc -p tsconfig.json",
     "build:watch": "tsc -w -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

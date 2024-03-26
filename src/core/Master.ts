@@ -3,10 +3,10 @@ import { ChildProcess } from "child_process";
 
 import { EnvLoader } from "../util/EnvLoader";
 import { cluster } from "../util/cluster";
-import { Logger } from '../bin/command/logger';
 import { Message } from './type/Message';
 import { MasterMessenger } from './messenger/MasterMessenger';
 import { MessengerMessage } from './messenger/Messenger';
+import { Logger } from '../util/logger';
 
 /**
  * Master 类用于管理主进程的操作，包括子进程的创建、消息处理等。

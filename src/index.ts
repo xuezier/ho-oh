@@ -1,15 +1,16 @@
 // 引入必要的模块
-import { Logger } from "./bin/command/logger";
 import { Master } from "./core/Master";
 import { Worker } from "./core/Worker";
 import { Messenger, MessengerMessage } from "./core/messenger/Messenger";
 import { Message } from "./core/type/Message"
 import { cluster } from "./util/cluster";
+import { Logger } from "./util/logger";
 
 // 定义一个异步函数 runApp，用于启动应用程序
 export async function runApp(options: any) {
     // 从 options 中解构出必要的属性
     const { dispatch, baseDir, title, workers } = options;
+    console.log(options);
 
     // 如果是主进程或主节点
     if (cluster.isPrimary || cluster.isMaster) {
